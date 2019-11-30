@@ -29,9 +29,11 @@ Route::get('/api/testpoint/all', function () {
 
 });
 
-Route::get('/api/firmware/all', function () {
+Route::get('/api/get-firmware', function () {
 
-    return Response::json(DB::table('firmware')->orderBy('id','desc')->get());
+    return Response::json(DB::table('firmware')->orderBy('id','desc')->paginate(10));
+
+
 
 });
 
